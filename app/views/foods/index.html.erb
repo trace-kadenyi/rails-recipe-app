@@ -24,7 +24,7 @@
           <td><%= food.price %></td>
           <td><%= food.quantity %></td>
           <td>
-            <%= link_to 'Delete', user_foods_url, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> </td>
+            <%= link_to 'Delete', user_food_path(@user.id, food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> </td>
         </tr>
       <% end %>
     </tbody>
