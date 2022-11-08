@@ -29,9 +29,9 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
 
     if @food.destroy
-      flash[:notice] = "Food deleted"
+      flash[:notice] = 'Food deleted'
     else
-      flash[:error] = "Food not deleted"
+      flash[:error] = 'Food not deleted'
     end
     redirect_to user_foods_path
   end
@@ -41,5 +41,4 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
-
 end
