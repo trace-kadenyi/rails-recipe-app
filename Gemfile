@@ -12,6 +12,9 @@ gem 'devise'
 # bootstrap gem
 gem 'twitter-bootstrap-rails'
 
+# bootstrap views
+gem 'devise-bootstrap-views'
+
 # rubocop gem
 gem 'rubocop', '>= 1.0', '< 2.0'
 
