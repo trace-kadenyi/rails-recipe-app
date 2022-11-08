@@ -1,6 +1,5 @@
 class FoodsController < ApplicationController
   def index
-    # show foods beloging to user with id = current_user.id
     @user = User.includes(:foods).find(params[:user_id])
     @foods = @user.foods
     # @current_user = current_user
