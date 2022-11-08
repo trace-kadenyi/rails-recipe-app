@@ -1,0 +1,32 @@
+<section class='p-5'>
+  <div class='level-right'>
+    <p class='level-item'>
+      <%= link_to "Add Food", new_user_food_path, class: 'button is-primary' %>
+    </p>
+  </div>
+
+  <table class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-5'>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</abbr></th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td><%= food.quantity %></td>
+          <td>
+            <%= link_to 'Delete', user_food_path(@user.id, food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
