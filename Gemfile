@@ -9,6 +9,9 @@ gem 'rails', '~> 7.0.4'
 # devise gem
 gem 'devise'
 
+# bootstrap gem
+gem 'twitter-bootstrap-rails'
+
 # rubocop gem
 gem 'rubocop', '>= 1.0', '< 2.0'
 
