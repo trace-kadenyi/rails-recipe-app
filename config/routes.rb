@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   resources :users do
     resources :foods
   end
 
-  root "users#index"
+  root to: "users#index"
 end
