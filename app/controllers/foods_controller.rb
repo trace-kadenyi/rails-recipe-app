@@ -1,8 +1,9 @@
 class FoodsController < ApplicationController
   def index
-    @user = User.includes(:foods).find(params[:user_id])
-    @foods = @user.foods
+    # @user = User.includes(:foods).find(params[:user_id])
+    # @foods = @user.foods
     # @current_user = current_user
+    @foods = Food.all
   end
 
   def new
@@ -11,13 +12,14 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    @user = User.find(params[:user_id])
-    @food.user = @user
+    # @user = User.find(params[:user_id])
+    # @food.user = @user
 
     if @food.save
-      redirect_to user_foods_path
+      redirect_to foods_path,
+                  notice: 'Food was successfully created.'
     else
-      render :new
+      render :new, alert: 'Food was not created.'
     end
   end
 
@@ -29,11 +31,11 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
 
     if @food.destroy
-      flash[:notice] = 'Food deleted'
+      flash.notice = 'Food was successfully deleted.'
     else
-      flash[:error] = 'Food not deleted'
+      flash.alert = 'Food was not deleted.'
     end
-    redirect_to user_foods_path
+    redirect_to foods_path
   end
 
   private

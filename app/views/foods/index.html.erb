@@ -1,7 +1,7 @@
 <section class='p-5'>
   <div class='level-right'>
     <p class='level-item'>
-      <%= link_to "Add Food", new_user_food_path, class: 'button is-primary' %>
+      <%= link_to "Add Food", new_food_path, class: 'button is-primary' %>
     </p>
   </div>
 
@@ -21,10 +21,10 @@
         <tr>
           <td><%= food.name %></td>
           <td><%= food.measurement_unit %></td>
-          <td><%= food.price %></td>
+          <td>$ <%= food.price %></td>
           <td><%= food.quantity %></td>
           <td>
-            <%= link_to 'Delete', user_food_path(@user.id, food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> </td>
+            <%= link_to 'Delete', food_path(food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> </td>
         </tr>
       <% end %>
     </tbody>

@@ -1,18 +1,22 @@
 <section class='section'>
+ <h1 class='title is-size-1 has-text-centered mt-5'>
+    Welcome to the Food App!
+  </h1>
   <div class='container'>
-    <% @users.each do |user| %>
       <div class='card'>
         <div class='card-content'>
           <div class='media'>
             <div class='media-content'>
-              <p class='title is-4'>
-                <%= link_to user.name, user %>
+              <p class='subtitle is-4'>
+                You can explore various foods and recipes!
+              </p>
+              <p class='subtitle is-4'>
+                Create your very own shopping list!
               </p>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
   </div>
 </section>
 
