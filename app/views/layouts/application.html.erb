@@ -17,14 +17,12 @@
     <% if user_signed_in? %>
       <a href='/'>Home</a>
       <a href='/foods'>Foods</a>
+      <a href='/recipes'>Recipes</a>
+      <a href='/public_recipes'>Public Recipes</a>
       <%= link_to(destroy_user_session_path, {:class => "nav-link", :method => :delete}) do  %>
       <span class="sidebar-normal"> Logout </span>
-<% end %>
-    <% else %>
-      <a href='/users/sign_in'>Sign in</a>
+      <% end %>
     <% end %>
-
-
     <%= yield %>
   </body>
 </html>

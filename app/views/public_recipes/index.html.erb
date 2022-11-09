@@ -1,0 +1,30 @@
+<section class='section'>
+  <h1 class='title is-size-1 has-text-centered mt-5'>
+   Public Recipes
+  </h1>
+  <div class='container public_recipes_container'>
+    <% @recipes.each do |recipe| %>
+      <div class='card'>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content public_recipe_details'>
+              <h2 class='subtitle is-3'>
+                <span>
+                  <%= link_to recipe.name, recipe_path(recipe) %>
+                </span>
+                <span class='subtitle is-5'>By: <%= recipe.user.name %></span>
+              </h2>
+              <p class='subtitle is-5'>
+                <span>Total food items: <%= recipe.recipe_foods.count %></span>
+                <span>Total price: $ 
+                  <%= recipe.recipe_foods.map { |rf| rf.food.price * rf.quantity }.sum %>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+

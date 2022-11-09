@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :users do
     resources :foods
-  end
+    resources :public_recipes
+    resources :recipes do
+      resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
 
-  root to: "users#index"
+    end
+
+  root to: "public_recipes#index"
 end

@@ -1,0 +1,69 @@
+<section class='section'>
+  <div class='container single_recipe_container'>
+      <div class='card'>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <h1 class='title is-size-1 has-text-centered'>
+                <%= @recipe.name %>
+              </h1>
+              <%# checkbox %>
+             <div class='public_check'>
+              <div class="form-check form-switch">
+                <input 
+                  class="form-check-input checkbox"
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                  <%= @recipe.public ? "checked" : "" %>
+                />
+                <label class="form-check" for="flexSwitchCheckDefault">Public</label>
+              </div>
+             </div>
+             <%# other details %>
+              <p class='subtitle is-5'>Preparation time: <%= @recipe.preparation_time %></p>
+              <p class='subtitle is-5'>Cooking time: <%= @recipe.cooking_time %></p>
+              <div class='description mb-5'>
+                <h5 class='title is-4'>Description</h5>
+                <p><%= @recipe.description %></p>
+              </div>
+              <div class='buttons'>
+                <button class='button is-primary is-light'>Generate Shopping List</button>
+                <%# link to create new ingredient %>
+                <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'button is-primary is-light' %>
+                <%# <button class='button is-primary is-light'>Add Ingredient</button> %>
+              </div>
+              <hr />
+
+
+            <table class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-5'>
+              <thead>
+                <tr>
+                  <th>Food</th>
+                  <th>Quantity</th>
+                  <th>Value</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @recipe.recipe_foods.each do |recipe_food| %>
+                  <tr>
+                    <td><%= recipe_food.food.name %></td>
+                    <td><%= recipe_food.quantity %></td>
+                    <td>$ <%= recipe_food.food.price %></td>
+                    <td>
+                    <%# edit %>
+                    <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class: 'button is-primary is-light' %>
+                      <%= link_to 'Delete', recipe_recipe_food_path(@recipe, recipe_food), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
