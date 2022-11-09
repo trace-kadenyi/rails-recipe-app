@@ -27,7 +27,8 @@
                 <p><%= @recipe.description %></p>
               </div>
               <div class='buttons'>
-                <button class='button is-primary is-light'>Generate Shopping List</button>
+                <%# link to shopping list %>
+                <%= link_to "Generate Shopping List", shopping_list_path(@recipe), class: "button is-primary is-light" %>
                 <%# link to create new ingredient %>
                 <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: 'button is-primary is-light' %>
                 <%# <button class='button is-primary is-light'>Add Ingredient</button> %>
