@@ -5,18 +5,12 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
-    @rc = RecipeFood.find(params[:id])
-    @fd  = Food.find(params[:id])
-     @res =  @fd.where(@fd.id != @rc.id)
-     puts 'THIS IS THE RESULT', @res
   end
 
   def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
    
-
-
     if @food.save
       redirect_to foods_path,
         notice: 'Food was successfully created.'

@@ -27,23 +27,13 @@
 
               <tbody>
               
-              <% @recipe.recipe_foods.each do |rf| %>
-               <% @food.each do |food| %>  
-                <% if @food != rf %>
-
-                  <tr>
-                    <td><%= @food.name %></td>
-                    <td><%= @food.quantity %></td>
-                    <td><%=@food.price %></td>
-
-             
-                
-                  
-                  </tr>
-                  <% end %>
-                  <% end %> 
-                <%# <% end %>  
-                  
+              <% @recipe.recipe_foods.each do |rf| %> 
+                <tr>
+                  <td><%= rf.food.name %></td>
+                  <td><%= rf.quantity %></td>
+                  <td>$ <%= rf.food.price %></td>
+                </tr>
+              <% end %>    
               </tbody>
             </table>
             </div>
