@@ -13,16 +13,76 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+    
+    <%# logged in user %>
     <% if user_signed_in? %>
-      <a href='/'>Home</a>
-      <a href='/foods'>Foods</a>
-      <a href='/recipes'>Recipes</a>
-      <a href='/public_recipes'>Public Recipes</a>
-      <a href='/shopping_list'>Shopping List</a>
-      <%= link_to(destroy_user_session_path, {:class => "nav-link", :method => :delete}) do  %>
-      <span class="sidebar-normal"> Logout </span>
-      <% end %>
+      <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <%# logo %>
+        <div class="navbar-brand">
+          <a class="navbar-item logo" href="/">
+          COOK BOOK
+          </a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      <%# menu %>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+          
+            <a class='navbar-item' href='/'>Home</a>
+            <a class='navbar-item' href='/foods'>Foods</a>
+            <a class='navbar-item' href='/recipes'>Recipes</a>
+            <a class='navbar-item' href='/public_recipes'>Public Recipes</a>
+        </div>
+      <%# user %>
+          <%= link_to(destroy_user_session_path, {:class => "nav-link", :method => :delete}) do  %>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                  <strong class='button is-warning'>Logout</strong>    
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </nav>
+    <%# User that is not logged in %>
+    <% else %>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <%# logo %>
+        <div class="navbar-brand">
+          <a class="navbar-item logo" href="/">
+          COOK BOOK
+          </a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <%# menu options %>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class='navbar-item' href='/public_recipes'>Public Recipes</a>
+        </div>
+      <%# sign up and log in options %>
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-light" href="/users/sign_up">
+                  Sign Up
+                </a>
+                 <a class="button is-light" href="/users/sign_in">
+                  Log In
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     <% end %>
     <%= yield %>
   </body>
