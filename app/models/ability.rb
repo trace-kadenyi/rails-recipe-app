@@ -5,11 +5,15 @@ class Ability
 
   def initialize(user)
 
-    return unless user.present?
+    #  user ||= User.new # guest user (not logged in)
+    # can :read, Recipe do |recipe|
+    #   recipe.user == user || recipe.public
+    # end
+    # return unless user.present?
 
-    can :read, Recipe, public: true
+    # can :read, Recipe, public: true
 
-    can :manage, Recipe, user_id: user.id
+    # can :manage, Recipe, user_id: user.id
    
   end
 end
