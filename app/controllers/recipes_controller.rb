@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
+  # load_and_authorize_resource
+
   def index
-    @recipes = Recipe.all.order(created_at: :desc)
+    @recipes = current_user.recipes.order(created_at: :desc)
   end
 
   def new
@@ -19,6 +21,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    # authorize! :read, @recipe
   end
 
   def edit

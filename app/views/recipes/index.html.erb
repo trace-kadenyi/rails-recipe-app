@@ -18,9 +18,14 @@
                 <span>
                   <%= link_to recipe.name, recipe_path(recipe.id) %>
                 </span>
+              <%# only owner can delete a recipe %>
+              
+              <%# <% if can? :destroy, recipe %>
                 <span class='subtitle is-5'>
                   <%= link_to 'REMOVE', recipe_path(recipe.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %>
                 </span>
+              <%# <% end %>
+
               </h2>
               <p class='subtitle is-6'>
                 <%= recipe.description %>

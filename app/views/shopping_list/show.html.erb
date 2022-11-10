@@ -1,0 +1,45 @@
+<section class='section'>
+  <div class='container single_recipe_list'>
+      <div class='card'>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content'>
+              <h1 class='title is-size-1 has-text-centered'>
+                Shopping List
+              </h1>
+            
+             <%# other details %>
+              <p class='subtitle is-5'>Amount of food to buy: <%= @recipe.foods.count %></p>
+              <p class='subtitle is-5'>Total value of food needed: $ <%= @recipe.recipe_foods.map { |rf| rf.food.price * rf.quantity }.sum %></p>
+              <p class='subtitle is-5'>Recipe: <%= @recipe.name %></p>
+              
+              <hr />
+
+
+            <table class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-5'>
+              <thead>
+                <tr>
+                  <th>Food</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+
+              <tbody>
+              
+              <% @recipe.recipe_foods.each do |rf| %> 
+                <tr>
+                  <td><%= rf.food.name %></td>
+                  <td><%= rf.quantity %></td>
+                  <td>$ <%= rf.food.price %></td>
+                </tr>
+              <% end %>    
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+

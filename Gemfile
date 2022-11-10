@@ -15,6 +15,9 @@ gem 'simple_form'
 # devise
 gem 'devise'
 
+# cancan
+gem 'cancancan'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 

@@ -1,8 +1,5 @@
 class FoodsController < ApplicationController
   def index
-    # @user = User.includes(:foods).find(params[:user_id])
-    # @foods = @user.foods
-    # @current_user = current_user
     @foods = Food.all
   end
 
@@ -12,8 +9,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    # @user = User.find(params[:user_id])
-    # @food.user = @user
+    @food.user_id = current_user.id
 
     if @food.save
       redirect_to foods_path,
