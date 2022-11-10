@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @foods = current_user.foods.order(created_at: :desc)
+    @foods = current_user.foods.order(created_at: :desc).includes([:user])
   end
 
   def new
@@ -22,7 +22,7 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @food = Food.find(params[:id])
+    @food = Food.find(params[:id]).includes(:user)
   end
 
   def destroy
