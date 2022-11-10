@@ -23,8 +23,18 @@
           <td><%= food.measurement_unit %></td>
           <td>$ <%= food.price %></td>
           <td><%= food.quantity %></td>
+          
           <td>
-            <%= link_to 'Delete', food_path(food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> </td>
+          <%# ONLY THE FOOD OWNER CAN DELETE IT %>
+          <% if can? :manage, food %>
+            <%= link_to 'Delete', food_path(food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> 
+            <% else %>
+            <button class='button' disabled>
+            Delete
+            </button>
+            <% end %>
+          </td>
+          
         </tr>
       <% end %>
     </tbody>
