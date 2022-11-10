@@ -1,6 +1,8 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @foods = Food.all
+    @foods = current_user.foods.order(created_at: :desc)
   end
 
   def new
@@ -13,7 +15,7 @@ class FoodsController < ApplicationController
 
     if @food.save
       redirect_to foods_path,
-                  notice: 'Food was successfully created.'
+        notice: 'Food was successfully created.'
     else
       render :new, alert: 'Food was not created.'
     end
