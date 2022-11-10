@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @foods = current_user.foods.order(created_at: :desc)
+    @foods = current_user.foods.order(created_at: :desc).includes([:user])
   end
 
   def new
