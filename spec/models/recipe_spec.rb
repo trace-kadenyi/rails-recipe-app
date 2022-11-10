@@ -40,7 +40,6 @@ RSpec.describe Recipe, type: :model do
       recipe = Recipe.new(description: nil)
       expect(recipe).to_not be_valid
     end
-    
 
     it 'is not valid without a preparation_time' do
       recipe = Recipe.new(preparation_time: nil)
@@ -67,6 +66,4 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).to_not be_valid
     end
   end
-
-
 end

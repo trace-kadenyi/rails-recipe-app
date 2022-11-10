@@ -14,12 +14,12 @@ RSpec.describe User, type: :model do
     end
   end
 
-    # test validations
+  # test validations
 
-    describe 'validations' do
-      it 'is not valid without a name' do
-        user = User.new(name: nil)
-        expect(user).to_not be_valid
-      end
+  describe 'validations' do
+    it 'is not valid without a name' do
+      user = User.new(name: nil)
+      expect(user).to_not be_valid
     end
+  end
 end
