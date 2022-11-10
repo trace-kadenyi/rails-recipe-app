@@ -2,13 +2,13 @@
 
 # Recipe App
 
-> This is a simple Recipe app built using Ruby on Rails framework.
+> This is a complex Recipe app built using Ruby on Rails framework. The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app allows you to make some of your recipes public so that anyone can access them.
 
 ## Built With
-
 - Ruby
 - Ruby on Rails
 - PostgreSQL
+- Rspec
 
 ## Getting Started
 
@@ -18,8 +18,9 @@ To get a local copy up and running follow these simple example steps.
 > - Run `cd rails-recipe-app` to change to project root directory
 > - Run `bundle install`
 > - Run `rails db:reset`
+> - Run `rails db:migrate:reset`
 > - Run `rails s` to run the app
-> - Opn `http://localhost:3000/` on your browser
+> - Open `http://localhost:3000/` on your browser
 
 ### Prerequisites
 
@@ -36,20 +37,20 @@ To get a local copy up and running follow these simple example steps.
 
 ### Run tests
 
-- Run `rspec`
+- Run `rspec .`
 
 ## Authors
+
+👤 **Tracey Kadenyi**
+
+- GitHub: [@TracK92](https://github.com/TracK92)
+- LinkedIn: [@Tracey Kadenyi](https://www.linkedin.com/in/Tracey-Kadenyi/)
 
 👤 **Abraham Ibizugbe**
 
 - GitHub: [@ibizugbe](https://github.com/ibizugbe)
 - LinkedIn: [Abraham Ibizugbe](https://www.linkedin.com/in/abraham-ibizugbe/)
 - Twitter: [@abrahamibizugbe](https://twitter.com/abrahamibizugbe)
-
-👤 **Tracey Kadenyi**
-
-- GitHub: [@TracK92](https://github.com/TracK92)
-- LinkedIn: [@Tracey Kadenyi](https://www.linkedin.com/in/Tracey-Kadenyi/)
 
 ## 🤝 Contributing
 
