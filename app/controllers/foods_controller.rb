@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
 
     if @food.save
       redirect_to foods_path,
-        notice: 'Food was successfully created.'
+                  notice: 'Food was successfully created.'
     else
       render :new, alert: 'Food was not created.'
     end

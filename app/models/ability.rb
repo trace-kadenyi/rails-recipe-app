@@ -3,9 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    can :read, Recipe do |recipe|
-      recipe.public
-    end
+    can :read, Recipe, &:public
     can :manage, Recipe do |recipe|
       recipe.user == user
     end
@@ -14,5 +12,4 @@ class Ability
       food.user == user
     end
   end
-
 end
