@@ -1,0 +1,27 @@
+<div class='section'>
+  <%= simple_form_for @food, url: foods_path, data: {turbo: false}, method: :post do |f| %>
+  <div class='field'>
+    <div class='control'>
+      <%= f.input :name, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div class='field'>
+    <div class='control'>
+      <%= f.input :measurement_unit, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+   <div class='field'>
+    <div class='control'>
+      <%= f.input :price, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+   <div class='field'>
+    <div class='control'>
+      <%= f.input :quantity, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div>
+    <%= f.button :submit, class: 'button is-primary' %>
+  </div>
+  <% end %>
+</div>

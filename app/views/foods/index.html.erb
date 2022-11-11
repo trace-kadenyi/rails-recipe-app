@@ -1,0 +1,42 @@
+<section class='p-5'>
+  <div class='level-right'>
+    <p class='level-item'>
+      <%= link_to "Add Food", new_food_path, class: 'button is-primary' %>
+    </p>
+  </div>
+
+  <table class='table is-bordered is-striped is-narrow is-hoverable is-fullwidth mt-5'>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</abbr></th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td>$ <%= food.price %></td>
+          <td><%= food.quantity %></td>
+          
+          <td>
+          <%# ONLY THE FOOD OWNER CAN DELETE IT %>
+          <% if can? :manage, food %>
+            <%= link_to 'Delete', food_path(food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %> 
+            <% else %>
+            <button class='button' disabled>
+            Delete
+            </button>
+            <% end %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

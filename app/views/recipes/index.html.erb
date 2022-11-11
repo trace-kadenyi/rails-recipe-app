@@ -1,0 +1,35 @@
+<section class='section'>
+  <div class='level-right'>
+    <p class='level-item'>
+      <%= link_to "Add Recipe", new_recipe_path, class: 'button is-primary' %>
+    </p>
+  </div>
+
+  <h1 class='title is-size-1 has-text-centered mt-5'>
+   Recipes
+  </h1>
+  <div class='container public_recipes_container'>
+    <% @recipes.each do |recipe| %>
+      <div class='card'>
+        <div class='card-content'>
+          <div class='media'>
+            <div class='media-content public_recipe_details'>
+              <h2 class='subtitle is-4'>
+                <span>
+                  <%= link_to recipe.name, recipe_path(recipe.id) %>
+                </span>              
+                <span class='subtitle is-5'>
+                  <%= link_to 'REMOVE', recipe_path(recipe.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'button is-danger' %>
+                </span>
+              </h2>
+              <p class='subtitle is-6'>
+                <%= recipe.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
